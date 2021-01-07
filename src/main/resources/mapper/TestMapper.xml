@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ych.mapper.TestMapper">
+
+    <insert id="insertToTest" parameterType="com.ych.dto.TestDTO">
+        insert into test(name,age,sex) values
+        <foreach collection="list" separator=" ) , ( " open="(" close=")" item="item">
+            #{item.name},
+            #{item.age},
+            #{item.sex}
+        </foreach>
+    </insert>
+</mapper>
